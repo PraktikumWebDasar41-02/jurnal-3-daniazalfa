@@ -17,3 +17,40 @@ OUTPUT :
 - Submit (Button)
 
 DEADLINE JAM 09.00
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="simpan.php" method="POST">
+	Nama:<input type="text" name="Nama"> <br>
+	NIM:  <input type="text" name="NIM"><br>
+	Gambar : <input type="file" name="Gambar"><br>
+	<input type="submit" name="submit" value="submit"><br>
+</form>
+
+</body>
+</html>
+
+
+<?php
+$con= mysqli_connect('localhost','root','','pendaftaran');
+?>
+
+<?php
+include "koneksi.php";
+if (isset($_POST['submit'])) {
+	$Nama=$_POST['Nama']
+	$NIM=$_POST['NIM']
+	$Gambar=$_POST['Gambar']
+	$query = INSERT INTO table_saya(Nama,NIM,Gambar) values ('$Nama','$NIM','$Gambar');
+	$result = mysqli_query($query);
+	if ($result) {
+		echo "berhasil";
+	}else{
+		echo "gagal";
+	}
+}
+?>
