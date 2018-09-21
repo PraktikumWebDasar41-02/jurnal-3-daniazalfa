@@ -42,15 +42,15 @@ $con= mysqli_connect('localhost','root','','pendaftaran');
 <?php
 include "koneksi.php";
 if (isset($_POST['submit'])) {
-	$Nama=$_POST['Nama']
-	$NIM=$_POST['NIM']
-	$Gambar=$_POST['Gambar']
-	$query = INSERT INTO table_saya(Nama,NIM,Gambar) values ('$Nama','$NIM','$Gambar');
-	$result = mysqli_query($query);
-	if ($result) {
-		echo "berhasil";
-	}else{
-		echo "gagal";
-	}
+  $Nama=$_POST['Nama'];
+  $NIM=$_POST['NIM'];
+  $file=$_POST['file'];
+  $query = "INSERT INTO pendaftaran(Nama,NIM,file) values ('$Nama','$NIM','$file')";
+  $result = mysqli_query($query);
+  if ($result) {
+    echo "berhasil";
+  }else{
+    echo "gagal";
+  }
 }
 ?>
